@@ -1,11 +1,12 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { ArrowRight, Code, Database, Globe, MessageSquare, Server, Smartphone } from 'lucide-react';
-import Image from 'next/image';
-import { useEffect, useState } from 'react';
-import { getMerchantApi } from '../lib/api/MerchantAPI';
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { ArrowRight, Code, Database, Globe, MessageSquare, Server, Smartphone } from "lucide-react";
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import { getMerchantApi } from "../lib/api/MerchantAPI";
+import TarLogo from "@/components/tarLogo";
 
 type Merchant = {
   name: string;
@@ -13,18 +14,43 @@ type Merchant = {
   // Add other properties if needed
 };
 
-const cdnUrl = process.env.NEXT_PUBLIC_CDN_URL || 'https://cdn.bamudung-app-dev.online';
+const merchantData: Merchant[] = [
+  {
+    name: "Manado Siar",
+    logo: "/manadosiar.png",
+  },
+  {
+    name: "Wealthy People Indonesia",
+    logo: "/wealthypeople.png",
+  },
+  {
+    name: "Harvest Agro Nusantara",
+    logo: "/orispices.png",
+  },
+  {
+    name: "Utuxia Photo",
+    logo: "/utuxia.png",
+  },
+  {
+    name: "Blessing Vanilla Indonesia",
+    logo: "/blessing.png",
+  },
+  {
+    name: "Mayesa Cocopro Indonesia",
+    logo: "/mayesa.png",
+  },
+];
 
 export default function Home() {
   const [merchant, setMerchant] = useState<Merchant[]>([]);
-  console.log('Merchant state initialized: ', merchant);
+  console.log("Merchant state initialized: ", merchant);
 
   async function getMerchantsList() {
     const response = await getMerchantApi();
     const data = await response.json();
 
-    console.log('Response from API: ', data);
-    console.log('Response status: ', response.status);
+    console.log("Response from API: ", data);
+    console.log("Response status: ", response.status);
 
     if (response.status === 200) {
       setMerchant(data.data);
@@ -35,7 +61,7 @@ export default function Home() {
   }
 
   useEffect(() => {
-    getMerchantsList().then(() => console.log('Merchant data fetched . . .'));
+    getMerchantsList().then(() => console.log("Merchant data fetched . . ."));
   }, []);
 
   return (
@@ -45,7 +71,8 @@ export default function Home() {
         <div className="max-w-screen-xl mx-auto px-4 flex h-16 items-center justify-between">
           <div className="flex items-center gap-2">
             {/* <Layers className="h-8 w-8 text-purple-500" /> */}
-            <Image src="/logo-dark.webp" alt="Logo" width={200} height={200} />
+            <TarLogo className="text-purple-500" />
+            <span className="text-xl font-bold">Tunas Abadi Raya</span>
           </div>
           <nav className="hidden md:flex items-center gap-6">
             <Link href="#services" className="text-sm hover:text-purple-400 transition-colors">
@@ -102,11 +129,11 @@ export default function Home() {
                   />
                 </div>
                 <div className="absolute -bottom-6 -left-6 bg-purple-600 p-4 rounded-lg shadow-xl">
-                  <div className="text-2xl font-bold">10+</div>
+                  <div className="text-2xl font-bold">5+</div>
                   <div className="text-sm">Years Experience</div>
                 </div>
                 <div className="absolute -top-6 -right-6 bg-zinc-800 p-4 rounded-lg shadow-xl">
-                  <div className="text-2xl font-bold">200+</div>
+                  <div className="text-2xl font-bold">100+</div>
                   <div className="text-sm">Projects Completed</div>
                 </div>
               </div>
@@ -128,37 +155,37 @@ export default function Home() {
               {[
                 {
                   icon: <Code className="h-10 w-10 text-purple-500" />,
-                  title: 'Custom Software Development',
+                  title: "Custom Software Development",
                   description:
-                    'Tailored software solutions designed to meet your specific business requirements.',
+                    "Tailored software solutions designed to meet your specific business requirements.",
                 },
                 {
                   icon: <Globe className="h-10 w-10 text-purple-500" />,
-                  title: 'Web Application Development',
+                  title: "Web Application Development",
                   description:
-                    'Responsive and scalable web applications built with modern technologies.',
+                    "Responsive and scalable web applications built with modern technologies.",
                 },
                 {
                   icon: <Smartphone className="h-10 w-10 text-purple-500" />,
-                  title: 'Mobile App Development',
-                  description: 'Native and cross-platform mobile applications for iOS and Android.',
+                  title: "Mobile App Development",
+                  description: "Native and cross-platform mobile applications for iOS and Android.",
                 },
                 {
                   icon: <Database className="h-10 w-10 text-purple-500" />,
-                  title: 'Database Design & Management',
+                  title: "Database Design & Management",
                   description:
-                    'Efficient database architecture and management for optimal performance.',
+                    "Efficient database architecture and management for optimal performance.",
                 },
                 {
                   icon: <Server className="h-10 w-10 text-purple-500" />,
-                  title: 'Cloud Solutions',
-                  description: 'Secure and scalable cloud infrastructure setup and management.',
+                  title: "Cloud Solutions",
+                  description: "Secure and scalable cloud infrastructure setup and management.",
                 },
                 {
                   icon: <MessageSquare className="h-10 w-10 text-purple-500" />,
-                  title: 'IT Consulting',
+                  title: "IT Consulting",
                   description:
-                    'Strategic technology consulting to help you make informed decisions.',
+                    "Strategic technology consulting to help you make informed decisions.",
                 },
               ].map((service, index) => (
                 <div
@@ -180,7 +207,7 @@ export default function Home() {
               <div className="relative">
                 <div className="relative h-[500px] w-full">
                   <Image
-                    src="/squad.jpg?height=500&width=500"
+                    src="/tar-office.png?height=500&width=500"
                     alt="About Us"
                     fill
                     className="object-cover rounded-lg"
@@ -204,7 +231,7 @@ export default function Home() {
                 </p>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="bg-zinc-800 p-4 rounded-lg">
-                    <div className="text-3xl font-bold text-purple-500">15+</div>
+                    <div className="text-3xl font-bold text-purple-500">10+</div>
                     <div className="text-sm text-zinc-400">Expert Developers</div>
                   </div>
                   <div className="bg-zinc-800 p-4 rounded-lg">
@@ -216,7 +243,7 @@ export default function Home() {
                     <div className="text-sm text-zinc-400">Support Available</div>
                   </div>
                   <div className="bg-zinc-800 p-4 rounded-lg">
-                    <div className="text-3xl font-bold text-purple-500">10+</div>
+                    <div className="text-3xl font-bold text-purple-500">5+</div>
                     <div className="text-sm text-zinc-400">Years Experience</div>
                   </div>
                 </div>
@@ -239,50 +266,50 @@ export default function Home() {
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
               {[
                 {
-                  image: '/temp_img.png?height=300&width=400',
-                  title: 'Food Order E-Commerce Platform',
-                  category: 'Web Development',
+                  image: "/temp_img.png?height=300&width=400",
+                  title: "Food Order E-Commerce Platform",
+                  category: "Web Development",
                   description:
-                    'A custom e-commerce solution with integrated payment processing and inventory management.',
+                    "A custom e-commerce solution with integrated payment processing and inventory management.",
                 },
                 {
-                  image: '/temp_img.png?height=300&width=400',
-                  title: 'POS System',
-                  category: 'Software Development',
+                  image: "/temp_img.png?height=300&width=400",
+                  title: "POS System",
+                  category: "Software Development",
                   description:
-                    'A comprehensive system for managing patient records, appointments, and billing.',
+                    "A comprehensive system for managing patient records, appointments, and billing.",
                 },
                 {
-                  image: '/temp_img.png?height=300&width=400',
-                  title: 'Logistics Tracking App',
-                  category: 'Mobile Development',
+                  image: "/temp_img.png?height=300&width=400",
+                  title: "Logistics Tracking App",
+                  category: "Mobile Development",
                   description:
-                    'Real-time tracking and management of delivery fleet with analytics dashboard.',
+                    "Real-time tracking and management of delivery fleet with analytics dashboard.",
                 },
                 {
-                  image: '/temp_img.png?height=300&width=400',
-                  title: 'Financial Analytics Dashboard',
-                  category: 'Data Visualization',
-                  description: 'Interactive dashboard for financial data analysis and reporting.',
+                  image: "/temp_img.png?height=300&width=400",
+                  title: "Financial Analytics Dashboard",
+                  category: "Data Visualization",
+                  description: "Interactive dashboard for financial data analysis and reporting.",
                 },
                 {
-                  image: '/temp_img.png?height=300&width=400',
-                  title: 'HR Management Portal',
-                  category: 'Web Application',
+                  image: "/temp_img.png?height=300&width=400",
+                  title: "HR Management Portal",
+                  category: "Web Application",
                   description:
-                    'Employee management system with performance tracking and payroll integration.',
+                    "Employee management system with performance tracking and payroll integration.",
                 },
                 {
-                  image: '/temp_img.png?height=300&width=400',
-                  title: 'Manado Cuisine Marketplace',
-                  category: 'Web Development',
-                  description: 'Property listing platform with virtual tours and agent management.',
+                  image: "/temp_img.png?height=300&width=400",
+                  title: "Manado Cuisine Marketplace",
+                  category: "Web Development",
+                  description: "Property listing platform with virtual tours and agent management.",
                 },
               ].map((project, index) => (
                 <div key={index} className="group relative overflow-hidden rounded-lg">
                   <div className="relative h-[250px] w-full">
                     <Image
-                      src={project.image || '/placeholder.svg'}
+                      src={project.image || "/placeholder.svg"}
                       alt={project.title}
                       fill
                       className="object-cover transition-transform group-hover:scale-105"
@@ -319,18 +346,12 @@ export default function Home() {
               </p>
             </div>
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-              {merchant.map((data, index) => (
+              {merchantData.map((data, index) => (
                 <div key={index} className="bg-zinc-800 p-6 rounded-lg border border-zinc-700">
                   <div className="flex items-center">
                     <div className="relative h-12 w-12 mr-4">
                       <Image
-                        src={
-                          !data.logo
-                            ? '/utensils.svg'
-                            : data.logo.includes('https')
-                            ? data.logo
-                            : `${cdnUrl}${data.logo}`
-                        }
+                        src={data.logo}
                         alt={data.name}
                         fill
                         className="object-cover rounded-full"
@@ -360,24 +381,24 @@ export default function Home() {
               {[
                 {
                   quote:
-                    'The team at Bamudung delivered our project on time and exceeded our expectations. Their attention to detail and technical expertise is impressive. Mr. Ridho is my favorite developer.',
-                  name: 'Pandu',
-                  position: 'CEO, Manado Foods.',
-                  image: '/ridho.png?height=100&width=100',
+                    "The team at Tunas Abadi Raya delivered our project on time and exceeded our expectations. Their attention to detail and technical expertise is impressive. Mr. Ridho is my favorite developer.",
+                  name: "Rolly",
+                  position: "CEO, Manadosiar.",
+                  image: "/rolly-manadosiar.jpg?height=100&width=100",
                 },
                 {
                   quote:
-                    'Working with Bamudung transformed our business processes. The custom software they developed has increased our efficiency by 40%.',
-                  name: 'Kiky',
-                  position: 'CEO, Nyiur Melambai.',
-                  image: '/ridho.png?height=100&width=100',
+                    "Working with Tunas Abadi Raya transformed our business processes. The custom software they developed has increased our efficiency by 40%.",
+                  name: "Daniel",
+                  position: "CEO, Harvest Agro Nusantara.",
+                  image: "/daniel-harvest.png?height=100&width=100",
                 },
                 {
                   quote:
-                    'The mobile app developed by Bamudung has received excellent feedback from our users. Their team was responsive and professional throughout the project.',
-                  name: 'Ocha',
-                  position: 'CEO, Cheese Cake Factory',
-                  image: '/ridho.png?height=100&width=100',
+                    "The mobile app developed by Tunas Abadi Raya has received excellent feedback from our users. Their team was responsive and professional throughout the project.",
+                  name: "Chero",
+                  position: "CEO, Wealthy People",
+                  image: "/chero-wp.png?height=100&width=100",
                 },
               ].map((testimonial, index) => (
                 <div key={index} className="bg-zinc-800 p-6 rounded-lg border border-zinc-700">
@@ -393,7 +414,7 @@ export default function Home() {
                   <div className="flex items-center">
                     <div className="relative h-12 w-12 mr-4">
                       <Image
-                        src={testimonial.image || '/placeholder.svg'}
+                        src={testimonial.image || "/placeholder.svg"}
                         alt={testimonial.name}
                         fill
                         className="object-cover rounded-full"
@@ -427,7 +448,7 @@ export default function Home() {
                     </div>
                     <div>
                       <h3 className="font-bold mb-1">Email Us</h3>
-                      <p className="text-zinc-400">info@bamudung-app-dev.online</p>
+                      <p className="text-zinc-400">info@tunasabadiraya.cv</p>
                     </div>
                   </div>
                   <div className="flex items-start">
@@ -435,8 +456,8 @@ export default function Home() {
                       <Smartphone className="h-5 w-5" />
                     </div>
                     <div>
-                      <h3 className="font-bold mb-1">Call Us</h3>
-                      <p className="text-zinc-400">+62 (812) 427-05758</p>
+                      <h3 className="font-bold mb-1">Text Us (WA only)</h3>
+                      <p className="text-zinc-400">+62 (821) 955-00236</p>
                     </div>
                   </div>
                   <div className="flex items-start">
@@ -446,9 +467,9 @@ export default function Home() {
                     <div>
                       <h3 className="font-bold mb-1">Visit Us</h3>
                       <p className="text-zinc-400">
-                        Rumah Rayya, Makasar
+                        Malalayang Satu Timur, Manado
                         <br />
-                        Jakarta Timur
+                        Sulawesi Utara
                       </p>
                     </div>
                   </div>
@@ -532,7 +553,7 @@ export default function Home() {
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             <div>
               <div className="flex items-center gap-2 mb-6">
-                <span className="text-xl font-bold">Bamudung</span>
+                <span className="text-xl font-bold">Tunas Abadi Raya</span>
               </div>
               <p className="text-zinc-400 mb-6">
                 Building innovative digital solutions for businesses of all sizes.
@@ -650,7 +671,7 @@ export default function Home() {
           </div>
           <div className="border-t border-zinc-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
             <p className="text-zinc-400 text-sm">
-              © {new Date().getFullYear()} Bamudung. All rights reserved.
+              © {new Date().getFullYear()} Tunas Abadi Raya. All rights reserved.
             </p>
             <div className="flex gap-4 mt-4 md:mt-0">
               <a href="#" className="text-zinc-400 hover:text-purple-400 text-sm">
