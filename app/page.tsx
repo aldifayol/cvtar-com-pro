@@ -5,39 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Code, Database, Globe, MessageSquare, Server, Smartphone } from "lucide-react";
 import Image from "next/image";
 import TarLogo from "@/components/tarLogo";
-
-type Merchant = {
-  name: string;
-  logo: string;
-  // Add other properties if needed
-};
-
-const merchantData: Merchant[] = [
-  {
-    name: "Manado Siar",
-    logo: "/manadosiar.png",
-  },
-  {
-    name: "Wealthy People Indonesia",
-    logo: "/wealthypeople.png",
-  },
-  {
-    name: "Harvest Agro Nusantara",
-    logo: "/orispices.png",
-  },
-  {
-    name: "Utuxia Photo",
-    logo: "/utuxia.png",
-  },
-  {
-    name: "Blessing Vanilla Indonesia",
-    logo: "/blessing.png",
-  },
-  {
-    name: "Mayesa Cocopro Indonesia",
-    logo: "/mayesa.png",
-  },
-];
+import LogoCloud from "../components/logo-cloud";
 
 export default function Home() {
   return (
@@ -242,10 +210,10 @@ export default function Home() {
               {[
                 {
                   image: "/temp_img.png?height=300&width=400",
-                  title: "Food Order E-Commerce Platform",
+                  title: "Exporting E-Commerce Platform",
                   category: "Web Development",
                   description:
-                    "A custom e-commerce solution with integrated payment processing and inventory management.",
+                    "A platform for exporting spices and other products to international markets.",
                 },
                 {
                   image: "/temp_img.png?height=300&width=400",
@@ -256,10 +224,10 @@ export default function Home() {
                 },
                 {
                   image: "/temp_img.png?height=300&width=400",
-                  title: "Logistics Tracking App",
+                  title: "Crypto Education App",
                   category: "Mobile Development",
                   description:
-                    "Real-time tracking and management of delivery fleet with analytics dashboard.",
+                    "A comprehensive platform for learning about cryptocurrencies and blockchain technology.",
                 },
                 {
                   image: "/temp_img.png?height=300&width=400",
@@ -269,16 +237,17 @@ export default function Home() {
                 },
                 {
                   image: "/temp_img.png?height=300&width=400",
-                  title: "HR Management Portal",
+                  title: "Video Streaming Platform",
                   category: "Web Application",
                   description:
-                    "Employee management system with performance tracking and payroll integration.",
+                    "A platform for streaming videos with a subscription model and ad-supported content.",
                 },
                 {
                   image: "/temp_img.png?height=300&width=400",
                   title: "Manado Cuisine Marketplace",
                   category: "Web Development",
-                  description: "Property listing platform with virtual tours and agent management.",
+                  description:
+                    "A platform for listing and ordering Manado cuisine with a delivery service.",
                 },
               ].map((project, index) => (
                 <div key={index} className="group relative overflow-hidden rounded-lg">
@@ -312,35 +281,7 @@ export default function Home() {
         </section>
 
         {/* Clients Section */}
-        <section id="clients" className="py-20">
-          <div className="max-w-screen-xl mx-auto px-4">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Clients</h2>
-              <p className="text-zinc-400 max-w-2xl mx-auto">
-                Here is our trustful clients. You may know some of them.
-              </p>
-            </div>
-            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-              {merchantData.map((data, index) => (
-                <div key={index} className="bg-zinc-800 p-6 rounded-lg border border-zinc-700">
-                  <div className="flex items-center">
-                    <div className="relative h-12 w-12 mr-4">
-                      <Image
-                        src={data.logo}
-                        alt={data.name}
-                        fill
-                        className="object-cover rounded-full"
-                      />
-                    </div>
-                    <div>
-                      <h4 className="font-bold">{data.name}</h4>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        <LogoCloud />
 
         {/* Testimonials Section */}
         <section id="testimonials" className="pb-20 bg-zinc-950">
