@@ -41,12 +41,11 @@ const merchantData: Merchant[] = [
 
 export default function Home() {
   return (
-    <div className="min-h-screen text-zinc-100">
+    <div className="min-h-screen text-zinc-100 bg-zinc-950">
       {/* Header */}
-      <header className="sticky top-0 z-50 w-full border-b border-zinc-800 backdrop-blur-sm">
+      <header className="sticky top-0 z-50 w-full border-b border-zinc-800 backdrop-blur-sm bg-zinc-950/80">
         <div className="max-w-screen-xl mx-auto px-4 flex h-16 items-center justify-between">
           <div className="flex items-center gap-2">
-            {/* <Layers className="h-8 w-8 text-purple-500" /> */}
             <TarLogo className="text-purple-500" />
             <span className="text-xl font-bold">Tunas Abadi Raya</span>
           </div>
@@ -177,7 +176,7 @@ export default function Home() {
         </section>
 
         {/* About Section */}
-        <section id="about" className="py-20">
+        <section id="about" className="py-20 bg-zinc-950">
           <div className="max-w-screen-xl mx-auto px-4">
             <div className="grid gap-12 md:grid-cols-2 items-center">
               <div className="relative">
@@ -344,7 +343,7 @@ export default function Home() {
         </section>
 
         {/* Testimonials Section */}
-        <section id="testimonials" className="pb-20">
+        <section id="testimonials" className="pb-20 bg-zinc-950">
           <div className="max-w-screen-xl mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">What Our Clients Say</h2>
@@ -503,7 +502,7 @@ export default function Home() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20">
+        <section className="py-20 bg-zinc-950">
           <div className="max-w-screen-xl mx-auto px-4">
             <div className="bg-linear-to-r from-purple-900 to-purple-700 rounded-2xl p-12 text-center">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
