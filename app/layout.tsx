@@ -1,11 +1,11 @@
-import type React from 'react';
-import '@/app/globals.css';
-import { ThemeProvider } from '@/components/theme-provider';
+import type React from "react";
+import "@/app/globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
 
 export const metadata = {
-  title: 'Bamudung - IT Consultant Services',
+  title: "Tunas Abadi Raya - General Contractor & IT Consultant Services",
   description:
-    'Professional IT consulting services specializing in custom application development for businesses.',
+    "Professional IT consulting services specializing in custom application development for businesses.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
