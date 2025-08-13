@@ -381,7 +381,7 @@ export default function Home() {
               {[
                 {
                   quote:
-                    "The team at Tunas Abadi Raya delivered our project on time and exceeded our expectations. Their attention to detail and technical expertise is impressive. Mr. Ridho is my favorite developer.",
+                    "The team at Tunas Abadi Raya delivered our project on time and exceeded our expectations. Their attention to detail and technical expertise is impressive.",
                   name: "Rolly",
                   position: "CEO, Manadosiar.",
                   image: "/rolly-manadosiar.jpg?height=100&width=100",
