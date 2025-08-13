@@ -4,8 +4,6 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Code, Database, Globe, MessageSquare, Server, Smartphone } from "lucide-react";
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import { getMerchantApi } from "../lib/api/MerchantAPI";
 import TarLogo from "@/components/tarLogo";
 
 type Merchant = {
@@ -42,28 +40,6 @@ const merchantData: Merchant[] = [
 ];
 
 export default function Home() {
-  const [merchant, setMerchant] = useState<Merchant[]>([]);
-  console.log("Merchant state initialized: ", merchant);
-
-  async function getMerchantsList() {
-    const response = await getMerchantApi();
-    const data = await response.json();
-
-    console.log("Response from API: ", data);
-    console.log("Response status: ", response.status);
-
-    if (response.status === 200) {
-      setMerchant(data.data);
-      // console.log('Merchant data fetched successfully: ', merchant);
-    } else {
-      throw new Error(`HTTP error! status: lost`);
-    }
-  }
-
-  useEffect(() => {
-    getMerchantsList().then(() => console.log("Merchant data fetched . . ."));
-  }, []);
-
   return (
     <div className="min-h-screen text-zinc-100">
       {/* Header */}
