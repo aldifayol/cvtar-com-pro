@@ -72,7 +72,7 @@ export default function Home() {
                   />
                 </div>
                 <div className="absolute -bottom-6 -left-6 bg-purple-600 p-4 rounded-lg shadow-xl">
-                  <div className="text-2xl font-bold">5+</div>
+                  <div className="text-2xl font-bold">10+</div>
                   <div className="text-sm">Years Experience</div>
                 </div>
                 <div className="absolute -top-6 -right-6 bg-zinc-800 p-4 rounded-lg shadow-xl">
@@ -186,7 +186,7 @@ export default function Home() {
                     <div className="text-sm text-zinc-400">Support Available</div>
                   </div>
                   <div className="bg-zinc-800 p-4 rounded-lg">
-                    <div className="text-3xl font-bold text-purple-500">5+</div>
+                    <div className="text-3xl font-bold text-purple-500">10+</div>
                     <div className="text-sm text-zinc-400">Years Experience</div>
                   </div>
                 </div>
