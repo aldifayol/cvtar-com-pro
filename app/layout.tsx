@@ -5,8 +5,8 @@ import "@/app/globals.css";
 export const metadata: Metadata = {
   title: {
     default: "Tunas Abadi Raya - General Contractor & IT Consultant Services",
-    template: "%s | Tunas Abadi Raya"
-  }
+    template: "%s | Tunas Abadi Raya",
+  },
   description:
     "Professional IT consulting services specializing in custom application development for businesses.",
   keywords: [
