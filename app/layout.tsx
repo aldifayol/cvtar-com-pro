@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: "/icon.ico",
+        url: "/icon-48.ico",
         sizes: "48x48",
         type: "image/x-icon",
       },
