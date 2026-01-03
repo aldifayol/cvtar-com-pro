@@ -19,8 +19,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Tunas Abadi Raya",
-    description: "IT Consulting based in Manado",
+    title: "Tunas Abadi Raya - IT Consulting Manado, Indonesia",
+    description:
+      "Professional IT consulting services specializing in custom application development for businesses.",
     url: "https://tunasabadiraya.cv",
     images: [
       {
@@ -33,6 +34,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    titel: "Tunas Abadi Raya - IT Consulting Manado, Indonesia",
+    description:
+      "Professional IT consulting services specializing in custom application development for businesses.",
     creator: "@ldifayol",
     images: ["https://tunasabadiraya.cv/tar-office.png"],
   },
