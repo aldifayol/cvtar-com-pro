@@ -36,6 +36,15 @@ export const metadata: Metadata = {
     creator: "@ldifayol",
     images: ["https://tunasabadiraya.cv/tar-office.png"],
   },
+  icons: {
+    icon: [
+      {
+        url: "/icon.ico",
+        sizes: "48x48",
+        type: "image/x-icon",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
